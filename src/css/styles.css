@@ -1,0 +1,77 @@
+/* Стили для формы поиска */
+.search-form {
+  margin: 20px auto;
+  text-align: center;
+}
+
+.search-form input {
+  font-size: 18px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.search-form button {
+  font-size: 18px;
+  padding: 8px 20px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-form button:hover {
+  background-color: #2980b9;
+}
+
+/* Стили для галереи */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 20px auto;
+}
+
+.photo-card {
+  width: 300px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.photo-card img {
+  width: 100%;
+  height: auto;
+}
+
+.info {
+  padding: 10px;
+  background-color: #f2f2f2;
+  text-align: center;
+}
+
+.info-item {
+  margin-bottom: 5px;
+}
+
+/* Стили для кнопки "Load more" */
+.load-more {
+  display: none;
+  margin: 20px auto;
+  font-size: 18px;
+  padding: 8px 20px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.load-more:hover {
+  background-color: #2980b9;
+}
