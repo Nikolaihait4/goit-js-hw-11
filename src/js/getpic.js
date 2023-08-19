@@ -3,6 +3,8 @@ import { Report } from 'notiflix/build/notiflix-report-aio';
 
 const API_KEY = '38927636-b5f6066692f15e9e72ed3611e';
 
+let isFirstSearch = true; // Переменная для отслеживания первого поиска
+
 // Функция для выполнения HTTP-запроса к API Pixabay
 export async function fetchImages(query, page) {
   try {
@@ -41,6 +43,7 @@ export async function fetchAndRenderImages(
       loadMoreBtn.classList.add('hidden');
       return;
     }
+
     renderFunction(images, gallery);
     loadMoreBtn.classList.remove('hidden');
     const { height: cardHeight } =
@@ -49,7 +52,13 @@ export async function fetchAndRenderImages(
       top: cardHeight * 2,
       behavior: 'smooth',
     });
-    Report.success(`Hooray! We found ${responseData.totalHits} images.`); // Уведомление о количестве найденных изображений
+
+    // Если это первый поиск или запрос отличается от предыдущего, выводим уведомление
+    if (isFirstSearch || query !== previousSearchQuery) {
+      Report.success(`Hooray! We found ${responseData.totalHits} images.`);
+      isFirstSearch = false;
+      previousSearchQuery = query; // Обновляем предыдущий запрос
+    }
   } catch (error) {
     Report.failure('Error fetching images:', error);
   }
